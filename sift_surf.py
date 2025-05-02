@@ -139,8 +139,6 @@ def run_sift_surf_and_filter(
     surf_user_matches = [
         m for m in matches_surf if m.queryIdx in surf_map.values()
     ]
-    
-    breakpoint()
 
     # package results
     results = {
@@ -166,13 +164,13 @@ def run_sift_surf_and_filter(
     return results
 
 import matplotlib.pyplot as plt
-img = plt.imread("/Users/yuyanyang/Downloads/cat_image1.JPG")
+img = plt.imread("./images/cat_image1.JPG")
 plt.imshow(img); pts = plt.ginput(10)
 print(pts)
 
 results = run_sift_surf_and_filter(
-    imgA_path="/Users/yuyanyang/Downloads/cat_image1.JPG",
-    imgB_path="/Users/yuyanyang/Downloads/cat_image2.JPG",
+    imgA_path="./images/cat_image1.JPG",
+    imgB_path="./images//cat_image2.JPG",
     user_points=pts,   # your ear clicks
     radius_px=50                                      # snap tolerance
 )
