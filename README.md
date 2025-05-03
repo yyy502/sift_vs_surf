@@ -1,6 +1,13 @@
 # Experiment Overview
 We set out to compare the matching performance of SIFT and SURF descriptors on two views of the same scene. First, we ran the full SIFT and SURF pipelines on both images and visualized all automatically detected correspondences—however, those “global” match plots were overwhelmed by hundreds of lines, making it impossible to assess match quality at specific locations.
 
+# Another way
+1. Feature Extraction: Extract SIFT and SURF features from animal images
+2. Distortion Analysis: Apply various distortions to images and compare descriptor stability
+3. Descriptor Evaluation: Measure and compare recall and precision metrics
+4. Spatial Pyramid Integration: Apply Spatial Pyramid Matching to add spatial information
+5. Classification Performance: Evaluate categorization accuracy with different combinations
+
 ---
 
 # Manual‑Point Refinement
