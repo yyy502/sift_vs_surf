@@ -1,12 +1,53 @@
 # Experiment Overview
 We set out to compare the matching performance of SIFT and SURF descriptors on two views of the same scene. First, we ran the full SIFT and SURF pipelines on both images and visualized all automatically detected correspondences—however, those “global” match plots were overwhelmed by hundreds of lines, making it impossible to assess match quality at specific locations.
 
-# Another way
-1. Feature Extraction: Extract SIFT and SURF features from animal images
-2. Distortion Analysis: Apply various distortions to images and compare descriptor stability
-3. Descriptor Evaluation: Measure and compare recall and precision metrics
-4. Spatial Pyramid Integration: Apply Spatial Pyramid Matching to add spatial information
-5. Classification Performance: Evaluate categorization accuracy with different combinations
+# Another Methodology
+1. Feature Extraction
+
+Implementation of SIFT (Scale-Invariant Feature Transform) and SURF (Speeded-Up Robust Features) descriptors
+Dataset: Oxford VGG Affine Covariant Regions dataset (https://www.robots.ox.ac.uk/~vgg/research/affine/index.html)
+Comparative extraction and analysis of keypoints and descriptors across image sets
+
+2. Distortion Analysis
+
+Application of various image transformations:
+Geometric: rotation, scaling
+Photometric: illumination changes, blur, compression, viewpoint change
+
+
+Quantitative measurement of descriptor stability and invariance properties
+Visual and statistical analysis of feature resilience under transformations
+
+3. Descriptor Evaluation
+
+Implementation of precision and recall metrics for feature matching
+ROC curve analysis for descriptor performance
+Cross-comparison between SIFT and SURF under different parameters
+Identification of optimal descriptor configurations
+
+4. SIFT-Only Classification
+
+Application to Animal Faces dataset (https://www.kaggle.com/datasets/andrewmvd/animal-faces)
+Implementation of Bag of Visual Words (BoVW) representation
+Feature extraction, vocabulary creation, and histogram generation
+SVM classification with cross-validation
+Performance evaluation using confusion matrices and accuracy metrics
+
+5. Spatial Pyramid Integration
+
+Implementation of Spatial Pyramid Matching framework
+Multi-level spatial feature aggregation (1×1, 2×2, 4×4, 8×8 grids)
+Weighted histogram combination across pyramid levels
+Vocabulary size optimization (M=16, M=50, M=100)
+Feature vector normalization techniques
+
+6. Classification Performance Comparison
+
+Systematic evaluation of SIFT-Only vs. SIFT+SPM approaches
+Analysis of accuracy improvements with spatial information
+Influence of vocabulary size and pyramid levels on performance
+Visualization of classification results using confusion matrices
+Statistical significance testing of performance differences
 
 ---
 
