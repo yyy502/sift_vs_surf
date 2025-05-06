@@ -1,57 +1,58 @@
 # Experiment Overview
 We set out to compare the matching performance of SIFT and SURF descriptors on two views of the same scene. First, we ran the full SIFT and SURF pipelines on both images and visualized all automatically detected correspondences—however, those “global” match plots were overwhelmed by hundreds of lines, making it impossible to assess match quality at specific locations.
 
-# Feature Descriptor Analysis
+# Structured Method
 
-## Descriptor Comparison Framework
+## Feature Descriptor Analysis
+1. Descriptor Comparison Framework
 
-SIFT vs. SURF evaluation using Oxford VGG Affine Covariant Regions dataset
-Matching methodology based on region overlap and Euclidean distance threshold
+   SIFT vs. SURF evaluation using Oxford VGG Affine Covariant Regions dataset
+   
+   Matching methodology based on region overlap and Euclidean distance threshold
 
-## Distortion Resilience Testing
+3. Distortion Resilience Testing
 
-Evaluation under five image distortion categories (https://www.robots.ox.ac.uk/~vgg/research/affine/index.html)
+   Evaluation under five image distortion categories (https://www.robots.ox.ac.uk/~vgg/research/affine/index.html)
+   
+   Measurement of recall, precision, and runtime metrics
 
-Measurement of recall, precision, and runtime metrics
+## Classification Methods
 
-# Classification Methods
 Evaluation for Cat vs Dog Binary Classification (https://www.kaggle.com/datasets/andrewmvd/animal-faces)
 
-## Benchmark: Bag of Visual Words (BoVW)
+1. Benchmark: Bag of Visual Words (BoVW)
 
-Implementation using SIFT descriptors
+   Implementation using SIFT descriptors
+   
+   K-means clustering (100 visual words)
+   
+   Visual word frequency histograms
+   
+   SVM classification
 
-K-means clustering (100 visual words)
-Visual word frequency histograms
-SVM classification
+2. Advanced Method: Spatial Pyramid Matching (SPM)
 
-## Advanced Method: Spatial Pyramid Matching (SPM)
+   Dense SIFT implementation on regular grid
 
-Dense SIFT implementation on regular grid
-Multi-level spatial pyramids
+   Multi-level spatial pyramids: Level 0 (1×1), Level 1 (2×2), Level 2 (4×4), Level 3 (8×8)
 
-Level 0: 1×1 grid
+   SVM classification with same framework as benchmark
 
-Level 1: 2×2 grid
+##  Comparative Performance Analysis
 
-Level 2: 4×4 grid
+1. Parameter Optimization
 
-Level 3: 8×8 grid
+   Vocabulary size variations (M=16, M=50, M=100)
+   
+   Pyramid level effectiveness
+   
+   Configuration optimization
 
+2. Benchmark Comparison
 
-SVM classification with same framework as benchmark
-
-#  Comparative Performance Analysis
-## Parameter Optimization
-
-Vocabulary size variations (M=16, M=50, M=100)
-Pyramid level effectiveness
-Configuration optimization
-
-## Benchmark Comparison
-
-Quantitative comparison between BoVW and SPM
-Analysis of spatial information contribution to performance
+   Quantitative comparison between BoVW and SPM
+   
+   Analysis of spatial information contribution to performance
 
 
 # Manual‑Point Refinement
