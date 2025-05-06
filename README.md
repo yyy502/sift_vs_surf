@@ -1,55 +1,58 @@
 # Experiment Overview
 We set out to compare the matching performance of SIFT and SURF descriptors on two views of the same scene. First, we ran the full SIFT and SURF pipelines on both images and visualized all automatically detected correspondences—however, those “global” match plots were overwhelmed by hundreds of lines, making it impossible to assess match quality at specific locations.
 
-# Another Methodology
-1. Feature Extraction
+# Feature Descriptor Analysis
 
-Implementation of SIFT (Scale-Invariant Feature Transform) and SURF (Speeded-Up Robust Features) descriptors
-Dataset: Oxford VGG Affine Covariant Regions dataset (https://www.robots.ox.ac.uk/~vgg/research/affine/index.html)
-Comparative extraction and analysis of keypoints and descriptors across image sets
+## Descriptor Comparison Framework
 
-2. Distortion Analysis
+SIFT vs. SURF evaluation using Oxford VGG Affine Covariant Regions dataset
+Matching methodology based on region overlap and Euclidean distance threshold
 
-Application of various image transformations:
-Geometric: rotation, scaling
-Photometric: illumination changes, blur, compression, viewpoint change
+## Distortion Resilience Testing
+
+Evaluation under five image distortion categories (https://www.robots.ox.ac.uk/~vgg/research/affine/index.html)
+
+Measurement of recall, precision, and runtime metrics
+
+# Classification Methods
+Evaluation for Cat vs Dog Binary Classification (https://www.kaggle.com/datasets/andrewmvd/animal-faces)
+
+## Benchmark: Bag of Visual Words (BoVW)
+
+Implementation using SIFT descriptors
+
+K-means clustering (100 visual words)
+Visual word frequency histograms
+SVM classification
+
+## Advanced Method: Spatial Pyramid Matching (SPM)
+
+Dense SIFT implementation on regular grid
+Multi-level spatial pyramids
+
+Level 0: 1×1 grid
+
+Level 1: 2×2 grid
+
+Level 2: 4×4 grid
+
+Level 3: 8×8 grid
 
 
-Quantitative measurement of descriptor stability and invariance properties
-Visual and statistical analysis of feature resilience under transformations
+SVM classification with same framework as benchmark
 
-3. Descriptor Evaluation
+#  Comparative Performance Analysis
+## Parameter Optimization
 
-Implementation of precision and recall metrics for feature matching
-ROC curve analysis for descriptor performance
-Cross-comparison between SIFT and SURF under different parameters
-Identification of optimal descriptor configurations
+Vocabulary size variations (M=16, M=50, M=100)
+Pyramid level effectiveness
+Configuration optimization
 
-4. SIFT-Only Classification
+## Benchmark Comparison
 
-Application to Animal Faces dataset (https://www.kaggle.com/datasets/andrewmvd/animal-faces)
-Implementation of Bag of Visual Words (BoVW) representation
-Feature extraction, vocabulary creation, and histogram generation
-SVM classification with cross-validation
-Performance evaluation using confusion matrices and accuracy metrics
+Quantitative comparison between BoVW and SPM
+Analysis of spatial information contribution to performance
 
-5. Spatial Pyramid Integration
-
-Implementation of Spatial Pyramid Matching framework
-Multi-level spatial feature aggregation (1×1, 2×2, 4×4, 8×8 grids)
-Weighted histogram combination across pyramid levels
-Vocabulary size optimization (M=16, M=50, M=100)
-Feature vector normalization techniques
-
-6. Classification Performance Comparison
-
-Systematic evaluation of SIFT-Only vs. SIFT+SPM approaches
-Analysis of accuracy improvements with spatial information
-Influence of vocabulary size and pyramid levels on performance
-Visualization of classification results using confusion matrices
-Statistical significance testing of performance differences
-
----
 
 # Manual‑Point Refinement
 1. **Landmark Selection**  
